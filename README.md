@@ -30,13 +30,13 @@ Este projeto não possui dependências externas além do Java Development Kit (J
 1. Clone o repositório em sua máquina local:
 
     ```bash
-    git clone https://github.com/your-username/memory-management-simulation.git
+    git clone https://github.com/taavaresdiego/memoryProject.git
     ```
 
 2. Navegue até o diretório do projeto:
 
     ```bash
-    cd memory-management-simulation
+    cd memoryProject
     ```
 
 3. Compile os arquivos Java:
@@ -78,5 +78,6 @@ Este projeto não possui dependências externas além do Java Development Kit (J
 
 ## Contribuição
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar relatórios de bugs, solicitações de recursos ou pull requests por meio do [repositório no GitHub](https://github.com/your-username/memory-management-simulation).
+Contribuições são bem-vindas! Sinta-se à vontade para enviar relatórios de bugs, solicitações de recursos ou pull requests por meio do [repositório no GitHub](https://github.com/taavaresdiego/memoryProject).
 
+## Licença
