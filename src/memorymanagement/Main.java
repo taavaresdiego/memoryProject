@@ -21,6 +21,7 @@ public class Main {
         Process p3 = new Process(3, 2);
         Process p4 = new Process(4, 3);
         Process p5 = new Process(5, 4);
+        Process p6 = new Process(6, 5);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -53,8 +54,9 @@ public class Main {
                             + "2 \t\t " + p2.getSizeInMemory() + "\n"
                             + "3 \t\t " + p3.getSizeInMemory() + "\n"
                             + "4 \t\t " + p4.getSizeInMemory() + "\n"
-                            + "5 \t\t " + p5.getSizeInMemory()
-                             + "\n");
+                            + "5 \t\t " + p5.getSizeInMemory() + "\n"
+                            + "6 \t\t " + p6.getSizeInMemory() + "\n");
+
 
                     processId = scanner.nextInt();
                     switch (processId) {
@@ -72,6 +74,9 @@ public class Main {
                             break;
                         case 5:
                             fitInMemory = mm.write(p5);
+                            break;
+                        case 6:
+                            fitInMemory = mm.write(p6);
                             break;
 
                     }
@@ -100,6 +105,9 @@ public class Main {
                         case 5:
                             mm.deleteProcess(p5);
                             break;
+                        case 6:
+                            mm.deleteProcess(p6);
+                            break;
 
                     }
                     ScreenUtil.clearScreen();
@@ -120,7 +128,8 @@ public class Main {
                             + "3 \t\t " + p3.getSizeInMemory() + "\n"
                             + "4 \t\t " + p4.getSizeInMemory() + "\n"+
                             "5 \t\t " + p5.getSizeInMemory() +
-                            "\n");
+                            "\n"
+                            + "6 \t\t " + p6.getSizeInMemory() + "\n");
                     break;
             }
         }
