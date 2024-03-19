@@ -5,13 +5,12 @@ Este programa em Java simula o gerenciamento de memória em um sistema de comput
 ## Sumário
 
 1. [Recursos](#recursos)
-2. [Dependências](#dependências)
-3. [Instalação](#instalação)
-4. [Uso](#uso)
-5. [Estratégias de Alocação de Memória](#estratégias-de-alocação-de-memória)
-6. [Visão Geral das Classes](#visão-geral-das-classes)
-7. [Contribuição](#contribuição)
-8. [Licença](#licença)
+2. [Apresentação do Sistema de Gerenciamento de Memória](#apresentação-do-sistema-de-gerenciamento-de-memória)
+3. [Dependências](#dependências)
+4. [Instalação](#instalação)
+5. [Uso](#uso)
+6. [Estratégias de Alocação de Memória](#estratégias-de-alocação-de-memória)
+7. [Visão Geral das Classes](#visão-geral-das-classes)
 
 ## Recursos
 
@@ -20,6 +19,35 @@ Este programa em Java simula o gerenciamento de memória em um sistema de comput
 - Exclusão de processos da memória.
 - Visualização do estado atual da memória.
 - Interface simples e intuitiva para o usuário via linha de comando.
+
+## Apresentação do Sistema de Gerenciamento de Memória
+
+### Arquitetura do Sistema
+
+O sistema é composto pelas seguintes classes:
+
+- `Main`: Contém o método principal para executar o programa. Lida com a entrada e interação do usuário.
+- `MemoryManager`: Gerencia a memória física e fornece métodos para escrever, excluir e recuperar processos de memória. Implementa as estratégias de alocação de memória.
+- `Process`: Representa um processo com um identificador único e um tamanho especificado na memória.
+- `Execute`: Facilita a interação com o sistema, permitindo criar e apagar processos.
+
+A comunicação entre as classes ocorre da seguinte forma:
+
+- `Main` interage com `MemoryManager` e `Execute` para controlar o fluxo principal do programa.
+- `MemoryManager` recebe comandos de alocação e desalocação de processos, implementando diferentes estratégias de alocação.
+- `Execute` fornece métodos para criar e apagar processos, delegando as operações ao `MemoryManager`.
+- `Process` é usado para representar os processos na memória, fornecendo informações sobre o tamanho e o ID.
+
+### Funcionamento do Sistema
+
+O sistema é inicializado com uma memória física de 128 KB e permite as seguintes operações:
+
+1. Criar um novo processo com um tamanho especificado.
+2. Apagar um processo existente fornecendo o ID do processo.
+3. Ler o estado atual da memória física.
+4. Sair do programa.
+
+A alocação de memória é realizada de acordo com a estratégia selecionada pelo usuário (FirstFit, BestFit ou WorstFit). Caso não haja espaço suficiente na memória, uma mensagem de erro é exibida.
 
 ## Dependências
 
@@ -69,15 +97,7 @@ Este projeto não possui dependências externas além do Java Development Kit (J
 ## Visão Geral das Classes
 
 1. **Main**: Contém o método principal para executar o programa. Lida com a entrada e interação do usuário.
-
 2. **MemoryManager**: Gerencia a memória física e fornece métodos para escrever, excluir e recuperar processos de memória. Implementa as estratégias de alocação de memória.
-
 3. **Process**: Representa um processo com um identificador único e um tamanho especificado na memória.
+4. **Execute**: Facilita a interação com o sistema, permitindo criar e apagar processos.
 
-4. **ScreenUtil**: Classe utilitária para limpar a tela do console.
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar relatórios de bugs, solicitações de recursos ou pull requests por meio do [repositório no GitHub](https://github.com/taavaresdiego/memoryProject).
-
-## Licença
