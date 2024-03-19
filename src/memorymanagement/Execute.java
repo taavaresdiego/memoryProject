@@ -10,7 +10,9 @@ public class Execute {
         lastProcessId++; // Incrementa o ID do processo
         Process newProcess = new Process(lastProcessId, processSize);
         boolean fitInMemory = mm.write(newProcess);
-        if (!fitInMemory) {
+        if (fitInMemory) {
+            System.out.println("Processo criado: ID - " + lastProcessId + ", Tamanho - " + processSize);
+        } else {
             System.out.println("O processo não coube na memória! \n\n");
         }
     }
@@ -23,6 +25,7 @@ public class Execute {
                 // Encontrou o processo com o ID correspondente, agora apaga
                 mm.deleteProcess(new Process(processId, 0)); // Criamos um novo processo apenas com o ID
                 processFound = true;
+                System.out.println("Processo deletado: ID - " + processId);
                 break; // Não precisamos continuar procurando
             }
         }

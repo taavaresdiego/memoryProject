@@ -1,9 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MemoryManager {
     private int tamMemory = 128;
     private int[] physicalMemory = new int[tamMemory];
     private int strategy = 0;
+    private List<Process> registeredProcesses = new ArrayList<>();
 
     public void setStrategy(int strategy) {
         this.strategy = strategy;
@@ -22,11 +26,19 @@ public class MemoryManager {
         if (strategy == 2)
             fitInMemory = writeWithWorstFit(p);
 
+        if (fitInMemory) {
+            registeredProcesses.add(p); // Adiciona o processo à lista de processos registrados
+        }
+
         return fitInMemory;
     }
 
     public int[] getPhysicalMemory() {
         return physicalMemory;
+    }
+
+    public List<Process> getRegisteredProcesses() {
+        return registeredProcesses;
     }
 
     public boolean writeWithFirstFit(Process p) {
@@ -144,5 +156,8 @@ public class MemoryManager {
         for (int i = 0; i < tamMemory; i++)
             if (physicalMemory[i] == id)
                 physicalMemory[i] = 0;
+
+        registeredProcesses.removeIf(process -> process.getId() == id); // Remove o processo da lista de processos registrados
     }
+
 }

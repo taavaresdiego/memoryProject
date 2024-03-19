@@ -1,8 +1,10 @@
 package memorymanagement;
 
 import model.MemoryManager;
+import model.Process;
 import util.ScreenUtil;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -47,13 +49,22 @@ public class Main {
 
                 case 3:
                     int[] memory = mm.getPhysicalMemory();
+                    List<Process> registeredProcesses = mm.getRegisteredProcesses();
+
+                    // Imprime a memória
                     for (int i = 0; i < 8; i++) {
                         for (int j = 0; j < 16; j++) {
                             System.out.print(memory[i * 16 + j] + ", ");
                         }
                         System.out.println();
                     }
-                    System.out.println("\n");
+
+                    // Imprime os processos registrados
+                    System.out.println("\nProcessos Registrados:");
+                    for (Process process : registeredProcesses) {
+                        System.out.println("ID: " + process.getId() + ", Tamanho: " + process.getSizeInMemory());
+                    }
+                    System.out.println();
                     break;
             }
         }
